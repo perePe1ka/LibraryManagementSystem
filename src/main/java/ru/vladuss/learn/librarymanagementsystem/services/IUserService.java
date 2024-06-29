@@ -11,7 +11,7 @@ import java.util.UUID;
 
 public interface IUserService<String> {
 
-    void register(RegisterUserDTO registerUser);
+    User create(User user);
 
     void deleteByUuid(UUID userUuid);
 

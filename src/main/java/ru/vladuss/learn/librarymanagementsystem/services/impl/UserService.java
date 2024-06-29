@@ -33,8 +33,8 @@ public class UserService implements IUserService<String> {
     }
 
     @Override
-    public void register(RegisterUserDTO registerUser) {
-
+    public User create(User user) {
+        return userRepository.saveAndFlush(user);
     }
 
     @Override
@@ -49,7 +49,8 @@ public class UserService implements IUserService<String> {
 
     @Override
     public User getUserByName(String name) {
-        return null;
+        return userRepository.findByFirstName(name).orElseThrow();
+//                (() -> new UsernameNotFoundException(name + "was not found!!!"));
     }
 
     @Override
@@ -59,6 +60,6 @@ public class UserService implements IUserService<String> {
 
     @Override
     public Optional<User> findUserByUUID(UUID uuid) {
-        return Optional.empty();
+        return Optional.ofNullable(modelMapper.map(userRepository.findById(uuid), User.class));
     }
 }

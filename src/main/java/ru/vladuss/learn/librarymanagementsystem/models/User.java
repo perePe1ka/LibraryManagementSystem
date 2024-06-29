@@ -1,5 +1,6 @@
 package ru.vladuss.learn.librarymanagementsystem.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -11,19 +12,23 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class User extends BaseEntity{
 
-    private String first_name;
+    @Column(name = "firstName")
+    private String firstName;
 
-    private String second_name;
+    @Column(name = "secondName")
+    private String secondName;
 
-    private String last_name;
+    @Column(name = "lastName")
+    private String lastName;
 
+    @Column(name = "birthday")
     private LocalDateTime birthday;
 
 }

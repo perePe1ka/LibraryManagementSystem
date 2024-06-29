@@ -1,13 +1,21 @@
 spring:
-  application.name: LibraryManagementSystem
+  application:
+    name: LibraryManagementSystem
   datasource:
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/user-service
     username: postgres
     password: 1234
   jpa:
+    hibernate:
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: update
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: DEBUG
+          type:
+            descriptor: TRACE

@@ -1,0 +1,14 @@
+package ru.vladuss.learn.bookmicroservice.controllers;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/")
+public class MainController {
+    @GetMapping("/checkHealth")
+    String checkHealth() {
+        return "Я тоже здоров, заебал";
+    }
+}

@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface IBookService<String> {
-    CreateBookDTO create(CreateBookDTO createBookDTO);
+    Book create(Book book);
 
     List<GetAllBooksDTO> getAll();
 

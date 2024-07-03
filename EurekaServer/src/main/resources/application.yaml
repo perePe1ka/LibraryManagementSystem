@@ -1,0 +1,52 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+#  instance:
+#    hostname: localhost
+  client:
+#    healthcheck:
+#      enabled: true
+    registerWithEureka: false
+    fetchRegistry: false
+#    service-url:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+#logging:
+#  level:
+#    com:
+#      netflix:
+#        eureka: OFF
+#        discovery: OFF
+#  pattern:
+#    console: "%C{1.} [%-5level] %d{HH:mm:ss} - %msg%n"
+
+
+#server:
+#  port: 8083
+#
+#spring:
+#  application:
+#    name: EurekaServer
+#
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    registerWithEureka: false
+#    fetchRegistry: false
+#    serviceUrl:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#
+#logging:
+#  level:
+#    com:
+#      netflix:
+#        eureka: OFF
+#        discovery: OFF
+#  pattern:
+#    console: "%C{1.} [%-5level] %d{HH:mm:ss} - %msg%n"

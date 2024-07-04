@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
-        <module name="testDelete" />
         <module name="UserService" />
         <module name="BookService" />
         <module name="api-gateway" />
@@ -16,6 +15,9 @@
         <module name="OrderService" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="testDelete" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

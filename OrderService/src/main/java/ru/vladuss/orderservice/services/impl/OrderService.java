@@ -3,13 +3,12 @@ package ru.vladuss.orderservice.services.impl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import ru.vladuss.orderservice.constants.Status;
 import ru.vladuss.orderservice.models.Order;
 import ru.vladuss.orderservice.repositories.IOrderRepository;
 import ru.vladuss.orderservice.services.IOrderService;
-import ru.vladuss.orderservice.services.dtos.EditOrderDTO;
-import ru.vladuss.orderservice.services.dtos.GetAllOrdersDTO;
-import ru.vladuss.orderservice.services.dtos.GetCurrentOrderDTO;
+import ru.vladuss.orderservice.services.dtos.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,9 +22,13 @@ public class OrderService implements IOrderService<String> {
     private IOrderRepository orderRepository;
 
     @Autowired
-    public OrderService(ModelMapper modelMapper, IOrderRepository orderRepository) {
+    private RestTemplate restTemplate;
+
+    @Autowired
+    public OrderService(ModelMapper modelMapper, IOrderRepository orderRepository, RestTemplate restTemplate) {
         this.modelMapper = modelMapper;
         this.orderRepository = orderRepository;
+        this.restTemplate = restTemplate;
     }
 
     @Autowired
@@ -63,4 +66,13 @@ public class OrderService implements IOrderService<String> {
     public void deleteByUuid(UUID uuid) {
         orderRepository.deleteById(uuid);
     }
+
+    public List<BookDTO> getAllBooks() {
+        return (List<BookDTO>) restTemplate.getForObject("http://localhost:8082/bclient/books/getAllBooks", BookDTO.class);
+    }
+
+    public List<UserDTO> getAllUser() {
+        return (List<UserDTO>) restTemplate.getForObject("http://localhost:8082/uclient/users/getAllUsers", UserDTO.class);
+    }
+
 }

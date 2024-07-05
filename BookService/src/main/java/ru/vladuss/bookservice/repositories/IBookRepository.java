@@ -14,4 +14,6 @@ public interface IBookRepository extends JpaRepository<Book, UUID> {
 
     Optional<GetCurrentBookDTO> findByName(String name);
 
+    Optional<Book> findByUuid(UUID uuid);
+
 }

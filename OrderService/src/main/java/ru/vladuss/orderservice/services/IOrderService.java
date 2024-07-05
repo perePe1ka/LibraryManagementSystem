@@ -22,4 +22,6 @@ public interface IOrderService<String> {
     Optional<Order> getOrderById(UUID uuid);
 
     void deleteByUuid(UUID uuid);
+
+
 }

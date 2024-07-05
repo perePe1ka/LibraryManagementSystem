@@ -1,5 +1,6 @@
 package ru.vladuss.bookservice.controllers;
 
+import jakarta.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,7 @@ import ru.vladuss.bookservice.services.dtos.GetAllBooksDTO;
 import ru.vladuss.bookservice.services.impl.BookService;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/books")
@@ -35,5 +37,10 @@ public class BookController {
     ResponseEntity<Book> createBook(@RequestBody Book book) {
         Book newBook = bookService.create(book);
         return ResponseEntity.status(HttpStatus.CREATED).body(newBook);
+    }
+
+    @GetMapping("/{id}")
+    ResponseEntity<Book> getBookByUuid(@PathVariable String uuid) {
+        return ResponseEntity.ok(bookService.getBookByUuid(uuid));
     }
 }

@@ -59,7 +59,10 @@ public class BookService implements IBookService<String> {
     }
 
     @Override
-    public Optional<Book> getBookByUuid(UUID uuid) {
-        return Optional.ofNullable(modelMapper.map(bookRepository.findById(uuid), Book.class));
+    public Book getBookByUuid(String uuid) {
+        Optional<Book> book = bookRepository.findById(UUID.fromString(uuid));
+        Book book1 = book.get();
+        book1.setViewCount(book1.getViewCount() + 1);
+        return book1;
     }
 }

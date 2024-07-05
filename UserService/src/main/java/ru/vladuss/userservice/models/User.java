@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.vladuss.userservice.constants.Role;
 
 import java.time.LocalDateTime;
 
@@ -29,5 +30,8 @@ public class User extends BaseEntity{
 
     @Column(name = "birthday")
     private LocalDateTime birthday;
+
+    @Column(name = "role")
+    private Role role;
 
 }

@@ -5,7 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.vladuss.orderservice.models.Order;
+import ru.vladuss.orderservice.services.dtos.BookDTO;
 import ru.vladuss.orderservice.services.dtos.GetAllOrdersDTO;
+import ru.vladuss.orderservice.services.dtos.UserDTO;
 import ru.vladuss.orderservice.services.impl.OrderService;
 
 import java.util.List;
@@ -35,6 +37,18 @@ public class OrderController {
     ResponseEntity<Order> createOrder(@RequestBody Order order) {
         Order order1 = orderService.create(order);
         return ResponseEntity.status(HttpStatus.CREATED).body(order1);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<List<BookDTO>> getAllBooks() {
+        BookDTO bookDTO = (BookDTO) orderService.getAllBooks();
+        return ResponseEntity.ok((List<BookDTO>) bookDTO);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<List<UserDTO>> getAllUsers() {
+        UserDTO userDTO = (UserDTO) orderService.getAllBooks();
+        return ResponseEntity.ok((List<UserDTO>) userDTO);
     }
 
 }

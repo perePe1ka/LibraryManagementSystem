@@ -8,6 +8,7 @@ import lombok.Setter;
 import ru.vladuss.orderservice.constants.Status;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "orders")
@@ -32,4 +33,10 @@ public class Order extends BaseEntity {
 
     @Column(name = "isInStock")
     private Boolean isInStock;
+
+    @Column(name = "bookId")
+    private UUID bookId;
+
+    @Column(name = "userId")
+    private UUID userId;
 }

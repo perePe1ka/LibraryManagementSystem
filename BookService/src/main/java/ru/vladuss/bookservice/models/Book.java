@@ -32,4 +32,7 @@ public class Book extends BaseEntity{
 
     @Column(name = "dateOfManufacture")
     private LocalDate dateOfManufacture;
+
+    @Column(name = "viewCount")
+    private Integer viewCount;
 }

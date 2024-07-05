@@ -21,5 +21,5 @@ public interface IBookService<String> {
 
     EditBookDTO editBook(EditBookDTO editBookDTO);
 
-    Optional<Book> getBookByUuid(UUID uuid);
+    Book getBookByUuid(String uuid);
 }

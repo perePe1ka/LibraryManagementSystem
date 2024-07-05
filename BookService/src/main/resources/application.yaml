@@ -16,7 +16,7 @@ spring:
     name: bclient
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/book-service
+    url: jdbc:postgresql://localhost:5432/LibraryManagment
     username: postgres
     password: 1234
   jpa:
